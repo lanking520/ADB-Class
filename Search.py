@@ -10,7 +10,7 @@ class DataClean:
 
     def __init__(self, path):
         f = open(path)
-        self.library = f.readlines()
+        self.library = f.read().splitlines()
 
     def clean(self, query):
         query = re.sub('[^a-zA-Z0-9]', ' ', query)
