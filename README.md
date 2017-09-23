@@ -1,6 +1,15 @@
-# ADB-Class
+# ADB-Project 1 
 
-In this project, you will design and implement a query-reformulation system to disambiguate queries and improve the relevance of the query results that are produced.
+## Group 2
+Qing Lan
+UNI: ql2282
+Li-Chieh Liu
+UNI: ll3123
+
+## Key
+Google Custom Search Engine API Key: AIzaSyBz-iFhhFx_sQSBMxKBMh9d5ZjD2nyQtLw
+Engine ID: 014170202143592210537:4zb34sjofuu
+
 
 ## Google Search API
 
