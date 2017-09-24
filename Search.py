@@ -40,22 +40,24 @@ def main():
     DC.clean(query)
     
     posNum = 0;
+    curPresision =  float(posNum/10)
     alpha = 1
     beta = 1.0
     gamma = 0.5
-
-    result = googleQuery(CSEKey, JsonAPIKey, query)
-    result_items = result["items"];
     summary_set = []
     pos_items = []
     neg_items = []
-    if len(result_items) ==0:
-        print("No result found")
-    else:
+
+    while curPresision<TargetPrecision:
+
         RC = Rocchio(alpha, beta, gamma, DC)
         RC.createDict(result_items, query)
         # print(RC.wordIndex)
-
+        if len(result_items) ==0:
+            print("No result found")
+            return             
+        result = googleQuery(CSEKey, JsonAPIKey, query)
+        result_items = result["items"]    
         for item in result_items:
             tmp = []
             tmp = item["snippet"].split(' ')
@@ -66,10 +68,13 @@ def main():
                 posNum+=1
             else:
                 neg_items.append(item)
+
         curPresision =  float(posNum/10)
         if curPresision<TargetPrecision:
             print(curPresision)
-        print(RC.calculate(pos_items, neg_items, posNum))
+        query +=" " + RC.calculate(pos_items, neg_items, posNum)
+        print(query)
+
 
     
 
