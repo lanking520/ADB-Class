@@ -13,10 +13,10 @@ class Rocchio:
     def createDict(self, document, query):
         temp = {}
         for item in document:
-            result = self.dc.stopWordRemoval(self.dc.clean(item['snippet']+" "+item['title']).split())
+            result = self.dc.stopWordRemoval(self.dc.clean(item['snippet']+" "+item['title']).lower().split())
             for w in result:
                 temp[w] = 0
-        for q_word in query.split(" "):
+        for q_word in query.lower().split(" "):
             if q_word in temp: 
                 del temp[q_word]
 
