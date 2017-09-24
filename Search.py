@@ -4,24 +4,11 @@ import sys
 import re
 # from Rocchio import Rocchio 
 # import numpy as np
+from DataClean import DataClean
+
 
 SearchAPI = "https://www.googleapis.com/customsearch/v1"
 libraryPath = "./proj1-stop.txt"
-
-
-class DataClean:
-    def __init__(self, path):
-        f = open(path)
-        self.library = f.read().splitlines()
-
-    def clean(self, query):
-        # Half-piece
-        query = re.sub('[^a-zA-Z0-9]', ' ', query)
-        return query
-
-    def stopWordRemoval(self, text):
-        text = [w for w in text if not w in self.library and not w.replace('.', '', 1).isdigit()]
-        return text
 
 
 def googleQuery(CSEKey, JsonAPIKey, query):
