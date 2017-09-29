@@ -27,14 +27,5 @@ c)     A clear description of how to run your program. Note that your project mu
 d)     A clear description of the internal design of your project
 
 e)     A detailed description of your query-modification method (this is the core component of the project; see below)
-![alt text](/Users/Jesse/Desktop/rocchio-formula.png "Title")
-f)      Your Google Custom Search Engine API Key and Engine ID (so we can test your project)
-g)     Any additional information that you consider significant 
 
-## Step to Success
-
-1. user type in the query that needed to be searched
-
-2. Update result and user leave the feedback
-
-3. Add more words in the query
+![alt text](rocchio-formula.png "Rocchio Formula") <br> 
