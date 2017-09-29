@@ -30,7 +30,7 @@ def printResult(item):
 
 def main():
     if len(sys.argv) < 4:
-        sys.stdout.write('Usage : python '+ sys.argv[0] +' <JsonAPIKey> <CSEKey> <precision> <query>\n')
+        sys.stdout.write('Usage : python3 '+ sys.argv[0] +' <JsonAPIKey> <CSEKey> <precision> <query>\n')
         sys.exit()
     JsonAPIKey = sys.argv[1]
     CSEKey = sys.argv[2]
@@ -56,9 +56,7 @@ def main():
         posNum = 0
         pos_items = []
         neg_items = []   
-        for item in result_items:
-            tmp = []
-            tmp = item["snippet"].split(' ')           
+        for item in result_items:           
             if printResult(item):
                 pos_items.append(item)
                 posNum+=1
