@@ -23,9 +23,11 @@ do ``python3 Search.py <JsonAPIKey> <CSEKey> <precision> <query>``
 
 
 
-## c)     A clear description of how to run your program. Note that your project must compile/run under Ubuntu in a Google Cloud VM. Provide all commands necessary to install the required software and dependencies for your program.
+c)     A clear description of how to run your program. Note that your project must compile/run under Ubuntu in a Google Cloud VM. Provide all commands necessary to install the required software and dependencies for your program.
 d)     A clear description of the internal design of your project
+
 e)     A detailed description of your query-modification method (this is the core component of the project; see below)
+![alt text](/Users/Jesse/Desktop/rocchio-formula.png "Title")
 f)      Your Google Custom Search Engine API Key and Engine ID (so we can test your project)
 g)     Any additional information that you consider significant 
 
