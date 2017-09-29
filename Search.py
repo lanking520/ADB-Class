@@ -49,7 +49,7 @@ def main():
         result = googleQuery(CSEKey, JsonAPIKey, query)
         result_items = result["items"] 
         # print(RC.wordIndex)
-        if len(result_items) ==0:
+        if len(result_items) == 0:
             print("No result found")
             return 
 
@@ -64,6 +64,9 @@ def main():
                 neg_items.append(item)
 
         curPresision =  float(posNum/10)
+        if curPresision <= 0.0:
+            print("No correct item found!")
+            return
         if curPresision<TargetPrecision:
             print(curPresision)
         else:
