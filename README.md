@@ -17,13 +17,13 @@ Engine ID: 014170202143592210537:4zb34sjofuu<br>
 JSON API key: AIzaSyBz-iFhhFx_sQSBMxKBMh9d5ZjD2nyQtLw
 
 ## How to run our program
-do ``python3 Search.py <JsonAPIKey> <CSEKey> <precision> <query>``
+do ``python3 Search.py <JsonAPIKey> <CSEKey> <precision> <query>`` <br>
 
 
 ## internal design of your project
 
 ## Our Query Modification Method
-We basically use the following formula<br> 
+We basically use the following formula - a moodified Rocchio algorithms<br> 
 
 ![alt text](rocchio-formula.png "Rocchio Formula") <br> 
 
@@ -31,6 +31,7 @@ Dj: Relevant Document Vector<br>
 Dk: Irrelevant Document Vector<br> 
 Qo: Original Query Vector<br> 
 Qm: Voted Query Vector<br> 
+<br>
 Here we set:<br> 
 a = 0 (since we cannot delete words in the original query)<br> 
 b = 1<br> 
