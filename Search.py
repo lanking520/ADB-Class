@@ -49,16 +49,14 @@ def main():
         result = googleQuery(CSEKey, JsonAPIKey, query)
         result_items = result["items"] 
         # print(RC.wordIndex)
-        if len(result_items) ==0:
-            print("No result found")
+        if len(result_items) < 10:
+            print("No result found or reuslt items smaller than 10")
             return 
 
         posNum = 0
         pos_items = []
         neg_items = []   
-        for item in result_items:
-            tmp = []
-            tmp = item["snippet"].split(' ')           
+        for item in result_items:           
             if printResult(item):
                 pos_items.append(item)
                 posNum+=1
@@ -66,6 +64,9 @@ def main():
                 neg_items.append(item)
 
         curPresision =  float(posNum/10)
+        if curPresision <= 0.0:
+            print("No correct item found!")
+            return
         if curPresision<TargetPrecision:
             print(curPresision)
         else:
