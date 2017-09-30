@@ -12,20 +12,29 @@ DataClean.py - Remove stop words and symbols <br>
 Rocchio.py - Modified Rocchio algorithms <br>
 
 
-## Key
+## Google Search API
 Engine ID: 014170202143592210537:4zb34sjofuu
 JSON API key: AIzaSyBz-iFhhFx_sQSBMxKBMh9d5ZjD2nyQtLw
 
 ## How to run our program
 do ``python3 Search.py <JsonAPIKey> <CSEKey> <precision> <query>``
 
-## Google Search API
 
+## internal design of your project
 
-
-c)     A clear description of how to run your program. Note that your project must compile/run under Ubuntu in a Google Cloud VM. Provide all commands necessary to install the required software and dependencies for your program.
-d)     A clear description of the internal design of your project
-
-e)     A detailed description of your query-modification method (this is the core component of the project; see below)
-
+## Our Query Modification Method
+We basically use the following formula
 ![alt text](rocchio-formula.png "Rocchio Formula") <br> 
+Dj: Relevant Document Vector<br> 
+Dk: Irrelevant Document Vector<br> 
+Qo: Original Query Vector<br> 
+Qm: Voted Query Vector<br> 
+Here we set:<br> 
+a = 0 (since we cannot delete words in the original query)<br> 
+b = 1<br> 
+c = 0.5<br> 
+
+We add one word at a time, the new word would be the highest voted word in vector Qm.<br> 
+
+
+
