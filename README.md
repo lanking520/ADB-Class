@@ -23,8 +23,10 @@ do ``python3 Search.py <JsonAPIKey> <CSEKey> <precision> <query>``
 ## internal design of your project
 
 ## Our Query Modification Method
-We basically use the following formula
+We basically use the following formula<br> 
+
 ![alt text](rocchio-formula.png "Rocchio Formula") <br> 
+
 Dj: Relevant Document Vector<br> 
 Dk: Irrelevant Document Vector<br> 
 Qo: Original Query Vector<br> 
@@ -35,6 +37,6 @@ b = 1<br>
 c = 0.5<br> 
 
 We add one word at a time, the new word would be the highest voted word in vector Qm.<br> 
-
+We create a long vector, each entry is a word appear in the top 10 search, if a document is marked as relevantm, we upvote the words in this document by weight b = 1, if it is irrelevant, we downvote the the word in this document by weight c = 0.5, and therefore comes out an vector Qm, we sort Qm to get the highest voted word and add to our new query. 
 
 
