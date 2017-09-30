@@ -49,8 +49,8 @@ def main():
         result = googleQuery(CSEKey, JsonAPIKey, query)
         result_items = result["items"] 
         # print(RC.wordIndex)
-        if len(result_items) == 0:
-            print("No result found")
+        if len(result_items) < 10:
+            print("No result found or reuslt items smaller than 10")
             return 
 
         posNum = 0
