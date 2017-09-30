@@ -21,6 +21,19 @@ do ``python3 Search.py <JsonAPIKey> <CSEKey> <precision> <query>`` <br>
 
 
 ## internal design of your project
+The overall design can be conclude in the following steps:
+
+### The input
+The search title and snippets are chosen as the input. The requests library are used to do the HTTP GET call to obtain the search result. Query sentences would be used here to find the proper result. We also store the user's decision on whether the reuslt is relevant or not which would further used in the query modification method.
+
+### Step 1 Sentence Cleaning and Stopwords Removal
+We use a regular expression to remove all Symbols, which including . , ? * ... After this step, we use the provided stopwords list to remove all stop words. After finishing up the cleaning part, a list would be provided to do the vectorization.
+
+### Step 2 Word Dictionary and Sentence Vectorization
+A word dictionary would be created to do the vectorization after the cleaning step. Thes words would be filtered to remove duplicates and then sort in an order. We use a list with that order to store the occurance of each word in the documents. After this step, we successfully obtained a sentence vector.
+
+### Step 3 Query Modification and Search Again
+Apply the Query Modification Method to the vectors using the sentence vectors and relevant labels. The method would provide the next word in the query and then we do the search again and move back to step 1. If the precision meet the requirement, the program would simply return.
 
 ## Our Query Modification Method
 We basically use the following formula - a moodified Rocchio algorithms<br> 
