@@ -17,13 +17,26 @@ Engine ID: 014170202143592210537:4zb34sjofuu<br>
 JSON API key: AIzaSyBz-iFhhFx_sQSBMxKBMh9d5ZjD2nyQtLw
 
 ## How to run our program
-do ``python3 Search.py <JsonAPIKey> <CSEKey> <precision> <query>``
+do ``python3 Search.py <JsonAPIKey> <CSEKey> <precision> <query>`` <br>
 
 
 ## internal design of your project
+The overall design can be conclude in the following steps:
+
+### The input
+The search title and snippets are chosen as the input. The requests library are used to do the HTTP GET call to obtain the search result. Query sentences would be used here to find the proper result. We also store the user's decision on whether the reuslt is relevant or not which would further used in the query modification method.
+
+### Step 1 Sentence Cleaning and Stopwords Removal
+We use a regular expression to remove all Symbols, which including . , ? * ... After this step, we use the provided stopwords list to remove all stop words. After finishing up the cleaning part, a list would be provided to do the vectorization.
+
+### Step 2 Word Dictionary and Sentence Vectorization
+A word dictionary would be created to do the vectorization after the cleaning step. Thes words would be filtered to remove duplicates and then sort in an order. We use a list with that order to store the occurance of each word in the documents. After this step, we successfully obtained a sentence vector.
+
+### Step 3 Query Modification and Search Again
+Apply the Query Modification Method to the vectors using the sentence vectors and relevant labels. The method would provide the next word in the query and then we do the search again and move back to step 1. If the precision meet the requirement, the program would simply return.
 
 ## Our Query Modification Method
-We basically use the following formula<br> 
+We basically use the following formula - a moodified Rocchio algorithms<br> 
 
 ![alt text](rocchio-formula.png "Rocchio Formula") <br> 
 
@@ -31,6 +44,7 @@ Dj: Relevant Document Vector<br>
 Dk: Irrelevant Document Vector<br> 
 Qo: Original Query Vector<br> 
 Qm: Voted Query Vector<br> 
+<br>
 Here we set:<br> 
 a = 0 (since we cannot delete words in the original query)<br> 
 b = 1<br> 
