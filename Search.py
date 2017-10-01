@@ -17,16 +17,36 @@ def googleQuery(CSEKey, JsonAPIKey, query):
     return json.loads(r.text)
 
 def printResult(item):
-    sys.stdout.write('\nTitle: '+item["title"]+'\n')    
-    sys.stdout.write('Link: '+item["link"]+'\n')
-    sys.stdout.write('Summary: '+item["snippet"]+'\n')
+    sys.stdout.write('URL: '+item["link"]+'\n')
+    sys.stdout.write('Title: '+item["title"]+'\n')    
+    sys.stdout.write('Summary: '+item["snippet"]+'\n\n')
     ans = input('Relevant(Y/N)?')
     if ans=='y' or ans=='Y':
         return True
     else:
         return False
 
+def printFeedback(query, precision, TargetPrecision):
+    sys.stdout.write("======================\n")
+    sys.stdout.write("FEEDBACK SUMMARY\n")
+    sys.stdout.write("Query " + query+"\n")
+    sys.stdout.write("Precision " + str(precision)+"\n")
+    if precision <= 0.0:
+        sys.stdout.write("No correct item found!")
+        return True
+    if precision < TargetPrecision:
+        sys.stdout.write("Still below the TargetPrecision " + str(TargetPrecision) + "\n")
+        return False
+    else:
+        sys.stdout.write("Meet the TargetPrecision!\n")
+        return True
 
+def printIntro(query, CSEKey, JsonAPIKey, precision):
+    sys.stdout.write("Parameters\n")
+    sys.stdout.write("Client key = " + CSEKey + "\n")
+    sys.stdout.write("Engine key = " + JsonAPIKey + "\n")
+    sys.stdout.write("Query      = " + query + "\n")
+    sys.stdout.write("Precision  = " + str(precision)+"\n")
 
 def main():
     if len(sys.argv) < 4:
@@ -43,20 +63,24 @@ def main():
     alpha = 1
     beta = 1.0
     gamma = 0.5
+    RC = Rocchio(alpha, beta, gamma, DC)
 
-    while curPresision<TargetPrecision:
+    while curPresision < TargetPrecision:
           
         result = googleQuery(CSEKey, JsonAPIKey, query)
         result_items = result["items"] 
         # print(RC.wordIndex)
+        printIntro(query, CSEKey, JsonAPIKey, TargetPrecision)
+        sys.stdout.write("Google Search Results:\n======================\n")
         if len(result_items) < 10:
-            print("No result found or reuslt items smaller than 10")
+            print("No result found or reuslt items smaller than 10\n")
             return 
 
         posNum = 0
         pos_items = []
         neg_items = []   
-        for item in result_items:           
+        for idx, item in enumerate(result_items):
+            print("\nResult " +str(idx+1)+"\n")       
             if printResult(item):
                 pos_items.append(item)
                 posNum+=1
@@ -64,21 +88,14 @@ def main():
                 neg_items.append(item)
 
         curPresision =  float(posNum/10)
-        if curPresision <= 0.0:
-            print("No correct item found!")
-            return
-        if curPresision<TargetPrecision:
-            print(curPresision)
-        else:
-            print("Finished!")
+        if printFeedback(query, curPresision, TargetPrecision):
             return
 
-        RC = Rocchio(alpha, beta, gamma, DC)
+        sys.stdout.write("Indexing results ....\n")
         RC.createDict(result_items, query)
-        query +=" " + RC.calculate(pos_items, neg_items, posNum)
-        print(query)
-
-
+        newWord = RC.calculate(pos_items, neg_items, posNum)
+        sys.stdout.write("Augmenting by "+newWord+"\n")
+        query += " " + newWord
     
 
 

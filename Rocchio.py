@@ -26,7 +26,7 @@ class Rocchio:
 
 
     def doc2Vec(self, doc):
-        mylist = self.dc.stopWordRemoval(self.dc.clean(doc).split())
+        mylist = self.dc.stopWordRemoval(self.dc.clean(doc).lower().split())
         result = np.zeros(len(self.wordIndex.keys()))
         for word in mylist:
             if word in self.wordIndex:
@@ -38,14 +38,14 @@ class Rocchio:
         pos_vec_sum = np.zeros(len(self.wordIndex.keys()))        
         neg_vec_sum = np.zeros(len(self.wordIndex.keys()))
         for pos_item in pos_items:
-            pos_vec_sum += self.doc2Vec(pos_item['snippet']+pos_item['title']+pos_item['title'])
+            pos_vec_sum += self.doc2Vec(' '.join([pos_item['snippet'], pos_item['title'], pos_item['title']]))
         for neg_item in neg_items:
-            neg_vec_sum += self.doc2Vec(neg_item['snippet']+neg_item['title']+neg_item['title'])
-            neg_vec_sum
+            neg_vec_sum += self.doc2Vec(' '.join([neg_item['snippet'], neg_item['title'], neg_item['title']]))
+
         pos_vec_sum = pos_vec_sum/posNum
         neg_vec_sum = neg_vec_sum/(10-posNum)
-        final_sum = self.beta*pos_vec_sum-self.gamma*neg_vec_sum
+        final_sum = self.beta * pos_vec_sum - self.gamma * neg_vec_sum
         finalindex = np.argsort(final_sum)
-        # for index in finalindex:
-        #     print(self.num2Word[index])
+        for index in finalindex:
+            print(self.num2Word[index] + " " + str(final_sum[index]))
         return self.num2Word[finalindex[-1]]
