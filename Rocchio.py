@@ -46,6 +46,6 @@ class Rocchio:
         neg_vec_sum = neg_vec_sum/(10-posNum)
         final_sum = self.beta * pos_vec_sum - self.gamma * neg_vec_sum
         finalindex = np.argsort(final_sum)
-        for index in finalindex:
-            print(self.num2Word[index] + " " + str(final_sum[index]))
+        # for index in finalindex:
+        #     print(self.num2Word[index] + " " + str(final_sum[index]))
         return self.num2Word[finalindex[-1]]
