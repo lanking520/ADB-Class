@@ -7,6 +7,7 @@
 |  Qing Lan  | ql2282 |
 
 ## Files List:
+proj1-stop.txt - Our stopwords
 requirement.txt - Dependency package
 Search.py - Our main program <br>
 DataClean.py - Remove stop words and symbols <br>
@@ -18,7 +19,7 @@ Engine ID: 014170202143592210537:4zb34sjofuu<br>
 JSON API key: AIzaSyBz-iFhhFx_sQSBMxKBMh9d5ZjD2nyQtLw
 
 ## How to run our program
-do `` pip3 install -r requirement.txt``
+do `` pip3 install -r requirement.txt`` <br>
 do ``python3 Search.py <JsonAPIKey> <CSEKey> <precision> <query>`` <br>
 
 
