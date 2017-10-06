@@ -7,6 +7,7 @@
 |  Qing Lan  | ql2282 |
 
 ## Files List:
+requirement.txt - Dependency package
 Search.py - Our main program <br>
 DataClean.py - Remove stop words and symbols <br>
 Rocchio.py - Modified Rocchio algorithms <br>
@@ -17,10 +18,11 @@ Engine ID: 014170202143592210537:4zb34sjofuu<br>
 JSON API key: AIzaSyBz-iFhhFx_sQSBMxKBMh9d5ZjD2nyQtLw
 
 ## How to run our program
+do `` pip3 install -r requirement.txt``
 do ``python3 Search.py <JsonAPIKey> <CSEKey> <precision> <query>`` <br>
 
 
-## internal design of your project
+## Internal design of your project
 The overall design can be conclude in the following steps:
 
 ### The input
