@@ -27,6 +27,8 @@ def textExtractor(URL):
 
 	return ok, visible_text
 
+def 
+
 def test():
 	ok, extracted = textExtractor("https://en.wikipedia.org/wiki/Bill_Gates")
 
