@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+from NLPCore import NLPCoreClient
 import urllib
 import json
 import sys
@@ -7,6 +8,7 @@ import re
 
 
 SearchAPI = "https://www.googleapis.com/customsearch/v1"
+NLPPackagePath = ""
 
 
 def googleQuery(CSEKey, JsonAPIKey, query):
@@ -27,7 +29,9 @@ def textExtractor(URL):
 
 	return ok, visible_text
 
-def 
+def NLP(text):
+	# Path
+	client = NLPCoreClient(NLPPackagePath)
 
 def test():
 	ok, extracted = textExtractor("https://en.wikipedia.org/wiki/Bill_Gates")
