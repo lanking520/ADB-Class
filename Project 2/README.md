@@ -7,8 +7,8 @@
 |  Qing Lan  | ql2282 |
 
 ## Files List:
-requirement.txt - Dependency package
-Search.py - Our main program <br>
+requirement.txt - Dependency package<br>
+Search.py - Our main program
 
 
 ## Google Search API
