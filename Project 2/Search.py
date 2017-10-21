@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import urllib
 import json
 import sys
 import re
@@ -14,10 +15,15 @@ def googleQuery(CSEKey, JsonAPIKey, query):
     return json.loads(r.text)
 
 def textExtractor(URL):
-	html = open(URL).read()
-	soup = BeautifulSoup(html)
+	r = requests.get(URL)
+	soup = BeautifulSoup(r.text, "html.parser")
 	[s.extract() for s in soup(['style', 'script', '[document]', 'head', 'title'])]
 	visible_text = soup.getText()
+	return visible_text
+
+def test():
+	extracted = textExtractor("https://en.wikipedia.org/wiki/Bill_Gates")
+	
 
 def main():
     if len(sys.argv) < 7:
@@ -38,7 +44,8 @@ def main():
 
 if __name__ == "__main__":
     try:
-        main()
+        # main()
+        test()
     except KeyboardInterrupt:
         print ("\n")
         exit()	
