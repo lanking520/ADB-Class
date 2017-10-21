@@ -15,15 +15,21 @@ def googleQuery(CSEKey, JsonAPIKey, query):
     return json.loads(r.text)
 
 def textExtractor(URL):
-	r = requests.get(URL)
-	soup = BeautifulSoup(r.text, "html.parser")
-	[s.extract() for s in soup(['style', 'script', '[document]', 'head', 'title'])]
-	visible_text = soup.getText()
-	return visible_text
+	# Default timeout 10 seconds
+	r = requests.get(URL, timeout = 10)
+	ok = False
+	visible_text = ""
+	if r.status_code == requests.codes.ok:
+		soup = BeautifulSoup(r.text, "html.parser")
+		[s.extract() for s in soup(['style', 'script', '[document]', 'head', 'title'])]
+		visible_text = soup.getText()
+		ok = True
+
+	return ok, visible_text
 
 def test():
-	extracted = textExtractor("https://en.wikipedia.org/wiki/Bill_Gates")
-	
+	ok, extracted = textExtractor("https://en.wikipedia.org/wiki/Bill_Gates")
+
 
 def main():
     if len(sys.argv) < 7:
