@@ -74,7 +74,7 @@ def test():
             NLP(extracted[length : length + 10])
             length +=10
             print("Finished", length,"/",len(extracted))
-        NLP(length : len(extracted))
+        NLP(extracted[length : len(extracted)])
         # print(extracted)
     else:
         print("Error Happened during the fetching and cleaning steps")
