@@ -56,7 +56,7 @@ class Sentence:
 
 
 	def tree_as_string(self):
-		rough_string = ET.tostring(self.tree.getroo, "utf-8", method="xml")
+		rough_string = ET.tostring(self.tree.getroot(), "utf-8", method="xml")
 		reparsed = minidom.parseString(rough_string)
 		return reparsed.toprettyxml(newl='')
 
@@ -85,7 +85,7 @@ class Token:
 		self.ner = token.findall("NER")[0].text
 
 	def tree_as_string(self):
-		rough_string = ET.tostring(self.tree.getroo, "utf-8", method="xml")
+		rough_string = ET.tostring(self.tree.getroot(), "utf-8", method="xml")
 		reparsed = minidom.parseString(rough_string)
 		return reparsed.toprettyxml(newl='')
 
@@ -104,7 +104,7 @@ class Dependency:
 		self.depidx = dependency.findall("dependent")[0].attrib['idx']
 
 	def tree_as_string(self):
-		rough_string = ET.tostring(self.tree.getroo, "utf-8", method="xml")
+		rough_string = ET.tostring(self.tree.getroot(), "utf-8", method="xml")
 		reparsed = minidom.parseString(rough_string)
 		return reparsed.toprettyxml(newl='')
 
@@ -115,7 +115,7 @@ class Dependency:
 class Entity:
 	def __init__(self, entity, tokens):
 		self.id = entity.attrib['id']
-		self.type = entity.text
+		self.type = ' '.join(entity.text.split())
 		self.value = None
 		for x in tokens:
 			if x.id == entity.findall("span")[0].attrib['end']:
@@ -123,12 +123,12 @@ class Entity:
 				break
 
 	def tree_as_string(self):
-		rough_string = ET.tostring(self.tree.getroo, "utf-8", method="xml")
+		rough_string = ET.tostring(self.tree.getroot(), "utf-8", method="xml")
 		reparsed = minidom.parseString(rough_string)
 		return reparsed.toprettyxml(newl='')
 
 	def __str__(self):
-		st = "Entity with ID: {}, value: {}, and type: {}. ".format(self.id, self.type, self.value)
+		st = "Entity with ID: {}, value: {}, and type: {}. ".format(self.id, self.value, self.type)
 		return st
 
 class Relation:
@@ -144,7 +144,7 @@ class Relation:
 			self.probabilities[x.findall('label')[0].text] = x.findall('value')[0].text
 
 	def tree_as_string(self):
-		rough_string = ET.tostring(self.tree.getroo, "utf-8", method="xml")
+		rough_string = ET.tostring(self.tree.getroot(), "utf-8", method="xml")
 		reparsed = minidom.parseString(rough_string)
 		return reparsed.toprettyxml(newl='')
 
