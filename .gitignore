@@ -5,3 +5,4 @@ Project 2/.DS_Store
 Project 2/__pycache__/
 .DS_Store
 input.txt*
+*.properties
