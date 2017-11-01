@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import requests
-import tika
 from bs4 import BeautifulSoup
 from NLPCore import NLPCoreClient
 from collections import defaultdict
 import urllib.request as ur
+import tika
 import json
 import sys
 import re
@@ -14,12 +14,10 @@ import re
 SearchAPI = "https://www.googleapis.com/customsearch/v1"
 # NLPPackagePath = '/User/lanking/Documents/GitHub/ADB-Class/stanford-corenlp-full-2017-06-09'
 client = NLPCoreClient('/Users/lanking/Documents/GitHub/ADB-Class/stanford-corenlp-full-2017-06-09')
-
 ## Parameter for selection
-DEBUG = True
-USE_TIKA = False   # Default using BeautifulSoup, can choose TIKA
-if USE_TIKA:
-    tika.initVM()
+DEBUG = False
+USE_TIKA = True   # Default using BeautifulSoup, can choose TIKA
+
 checkList = {"Work_For":"ORGANIZATION PEOPLE", "OrgBased_In": "LOCATION ORGANIZATION", "Live_In":"LOCATION PEOPLE","Located_In":"LOCATION LOCATION"}
 
 def googleQuery(CSEKey, JsonAPIKey, query):
@@ -78,6 +76,8 @@ def textExtractor(URL):
             r = requests.get(URL, headers={'User-Agent': 'Mozilla/5.0'})
             if r.status_code == 200:
                 text = r.text
+            else:
+                return ok, ""
         except Exception as e:
             print("requests open Failed:", e)
 
@@ -168,9 +168,11 @@ def Round2(text, relation_name):
             probs = relation.probabilities
             e = relation.entities
             key = ' '.join(sorted([e[0].type,e[1].type]))
+            # We do not find a match entities
             if key != checkList[relation_name]:
                 if DEBUG: print(key,"Length of entities", len(e))
                 continue
+            # Make sure we have the maximum relation
             if relation_name in probs and probs[relation_name] == max(probs.values()):
                 if len(relation.entities) == 2:
                     if len(line) == 0:
@@ -179,7 +181,7 @@ def Round2(text, relation_name):
                             temp.append(token.word)
                         line = ' '.join(temp)
                     
-                    if e[1].type > e[0].type:
+                    if e[1].type > e[0].type:  # Put things in order
                         swap = e[0]
                         e[0] = e[1]
                         e[1] = swap
@@ -233,22 +235,6 @@ def new_query(source, query, queryed):
                 return query
     return query
 
-def test():
-    ok, extracted = textExtractor("https://en.wikipedia.org/wiki/Bill_Gates")
-    if ok:
-        print("Prepare to Processing Round1",len(extracted))
-        text = batch_call(extracted, 10000, 'Round1')
-
-        print("Prepare to Processing Round2",len(text))
-        result = batch_call(text, 10000, 'Round2')
-
-        print("Remove Dupes...", len(result))
-        result = remove_dupes(result)
-        print("Dupes Removed!", len(result))
-        for item in result:
-            print_formatter(item)
-    else:
-        print("Error Happened during the fetching and cleaning steps")
 
 def main():
     if len(sys.argv) < 7:
@@ -268,6 +254,8 @@ def main():
     curr_round = 1
     requestedURL = {}
     queryed = {}
+    if USE_TIKA:
+        tika.initVM()
     while not_finished:
         print("=========== Iteration:",curr_round,"- Query:", query,"===========")
         query_result = googleQuery(JsonAPIKey, CSEKey, query)
@@ -314,7 +302,6 @@ def main():
 if __name__ == "__main__":
     try:
         main()
-        # test()
     except KeyboardInterrupt:
         print ("\n")
         exit()	
