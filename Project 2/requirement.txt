@@ -1,7 +1,184 @@
-beautifulsoup4==4.6.0
-certifi==2017.7.27.1
-chardet==3.0.4
-idna==2.6
-requests==2.18.4
-tika==1.15
-urllib3==1.22
+Parameters
+Client key	=  AIzaSyBz-iFhhFx_sQSBMxKBMh9d5ZjD2nyQtLw
+Engine key	=  014170202143592210537:4zb34sjofuu
+Relation	=  Work_For
+Threshold	=  0.35
+Query		=  bill gates microsoft
+# of Tuples	=  10
+=========== Iteration: 1 - Query: bill gates microsoft ===========
+Processing: https://news.microsoft.com/exec/bill-gates/
+Relations extracted from this website: 0 (Overall: 0 )
+Processing: https://en.wikipedia.org/wiki/Bill_Gates
+=============== EXTRACTED RELATION ===============
+Sentence: Mary Maxwell Gates Website gatesnotes.com Signature William Henry Gates III -LRB- born October 28 , 1955 -RRB- is an American business magnate , investor , author , philanthropist , and co-founder of the Microsoft Corporation along with Paul Allen .
+RelationType: Work_For | Confidence: 0.26798726444135224 | EntityType1= PEOPLE | EntityValue1= Allen | EntityType2= ORGANIZATION | EntityValue2= Corporation
+============== END OF RELATION DESC ==============
+=============== EXTRACTED RELATION ===============
+Sentence: -LSB- 7 -RSB- In June 2006 , Gates announced that he would be transitioning from full-time work at Microsoft to part-time work and full-time work at the Bill & Melinda Gates Foundation .
+RelationType: Work_For | Confidence: 0.29213226357528754 | EntityType1= PEOPLE | EntityValue1= Gates | EntityType2= ORGANIZATION | EntityValue2= Microsoft
+============== END OF RELATION DESC ==============
+=============== EXTRACTED RELATION ===============
+Sentence: Years later , Ballmer succeeded Gates as Microsoft 's CEO .
+RelationType: Work_For | Confidence: 0.33028150209323437 | EntityType1= PEOPLE | EntityValue1= Ballmer | EntityType2= ORGANIZATION | EntityValue2= Microsoft
+============== END OF RELATION DESC ==============
+=============== EXTRACTED RELATION ===============
+Sentence: In 2004 , he became a director of Berkshire Hathaway , the investment company headed by long-time friend Warren Buffett .
+RelationType: Work_For | Confidence: 0.4437710008969822 | EntityType1= PEOPLE | EntityValue1= Buffett | EntityType2= ORGANIZATION | EntityValue2= Hathaway
+============== END OF RELATION DESC ==============
+=============== EXTRACTED RELATION ===============
+Sentence: Specifically , the foundation is supporting the International Rice Research Institute in developing Golden Rice , a genetically modified rice variant used to combat Vitamin A deficiency .
+RelationType: Work_For | Confidence: 0.40622122992834303 | EntityType1= PEOPLE | EntityValue1= Rice | EntityType2= ORGANIZATION | EntityValue2= Institute
+============== END OF RELATION DESC ==============
+=============== EXTRACTED RELATION ===============
+Sentence: In 1999 , Gates donated $ 20 million to the Massachusetts Institute of Technology -LRB- MIT -RRB- for the construction of a computer laboratory named the `` William H. Gates Building '' that was designed by architect Frank Gehry .
+RelationType: Work_For | Confidence: 0.445540294239112 | EntityType1= PEOPLE | EntityValue1= Gates | EntityType2= ORGANIZATION | EntityValue2= Institute
+============== END OF RELATION DESC ==============
+=============== EXTRACTED RELATION ===============
+Sentence: Gates posted the video after Facebook founder Mark Zuckerberg challenged him to do so in order to raise awareness for the disease ALS -LRB- amyotrophic lateral sclerosis -RRB- .
+RelationType: Work_For | Confidence: 0.23852563401576965 | EntityType1= PEOPLE | EntityValue1= Gates | EntityType2= ORGANIZATION | EntityValue2= Facebook
+============== END OF RELATION DESC ==============
+=============== EXTRACTED RELATION ===============
+Sentence: Gates posted the video after Facebook founder Mark Zuckerberg challenged him to do so in order to raise awareness for the disease ALS -LRB- amyotrophic lateral sclerosis -RRB- .
+RelationType: Work_For | Confidence: 0.48466115883664407 | EntityType1= PEOPLE | EntityValue1= Zuckerberg | EntityType2= ORGANIZATION | EntityValue2= Facebook
+============== END OF RELATION DESC ==============
+=============== EXTRACTED RELATION ===============
+Sentence: -LSB- 156 -RSB- Books , films , social media and radio Books To date , Bill Gates has written two books : The Road Ahead , written with Microsoft executive Nathan Myhrvold and journalist Peter Rinearson , was published in November 1995 .
+RelationType: Work_For | Confidence: 0.48466115883664407 | EntityType1= PEOPLE | EntityValue1= Myhrvold | EntityType2= ORGANIZATION | EntityValue2= Microsoft
+============== END OF RELATION DESC ==============
+=============== EXTRACTED RELATION ===============
+Sentence: His choice of things to take on a desert island were , for music : `` Blue Skies '' by Willie Nelson ; book : The Better Angels of Our Nature by Steven Pinker ; and luxury item : a DVD Collection of Lectures from The Teaching Company .
+RelationType: Work_For | Confidence: 0.25202324178509483 | EntityType1= PEOPLE | EntityValue1= Nelson | EntityType2= ORGANIZATION | EntityValue2= Company
+============== END OF RELATION DESC ==============
+=============== EXTRACTED RELATION ===============
+Sentence: Some of these include : the Honorable John Dingell , the longest serving Member of Congress , Bill Gates , founder and CEO of the Microsoft Corporation , and Donnald K. Anderson , former Clerk of the House .
+RelationType: Work_For | Confidence: 0.254853079355502 | EntityType1= PEOPLE | EntityValue1= Gates | EntityType2= ORGANIZATION | EntityValue2= Corporation
+============== END OF RELATION DESC ==============
+=============== EXTRACTED RELATION ===============
+Sentence: Some of these include : the Honorable John Dingell , the longest serving Member of Congress , Bill Gates , founder and CEO of the Microsoft Corporation , and Donnald K. Anderson , former Clerk of the House .
+RelationType: Work_For | Confidence: 0.37587617647038185 | EntityType1= PEOPLE | EntityValue1= Anderson | EntityType2= ORGANIZATION | EntityValue2= Corporation
+============== END OF RELATION DESC ==============
+=============== EXTRACTED RELATION ===============
+Sentence: Some of these include : the Honorable John Dingell , the longest serving Member of Congress , Bill Gates , founder and CEO of the Microsoft Corporation , and Donnald K. Anderson , former Clerk of the House .
+RelationType: Work_For | Confidence: 0.3444567449538772 | EntityType1= PEOPLE | EntityValue1= Anderson | EntityType2= ORGANIZATION | EntityValue2= House
+============== END OF RELATION DESC ==============
+Relations extracted from this website: 13 (Overall: 13 )
+Processing: http://www.telegraph.co.uk/technology/0/bill-gates/
+=============== EXTRACTED RELATION ===============
+Sentence: Microsoft founder , world 's richest man and philanthropist Microsoft founder Bill Gates has been the world 's richest man since May 2013 .
+RelationType: Work_For | Confidence: 0.48317660388102346 | EntityType1= PEOPLE | EntityValue1= Gates | EntityType2= ORGANIZATION | EntityValue2= Microsoft
+============== END OF RELATION DESC ==============
+=============== EXTRACTED RELATION ===============
+Sentence: Paul Allen and Bill Gates with IBM personal computers after signing a software contract with IBM in 1981 .
+RelationType: Work_For | Confidence: 0.3098188195314543 | EntityType1= PEOPLE | EntityValue1= Allen | EntityType2= ORGANIZATION | EntityValue2= IBM
+============== END OF RELATION DESC ==============
+=============== EXTRACTED RELATION ===============
+Sentence: Google kicked our butts , said Gates in a 2005 interview , when he also branded Microsoft s decision not to pursue a dedicated search engine from the outset as stupid as hell .
+RelationType: Work_For | Confidence: 0.49666831723341304 | EntityType1= PEOPLE | EntityValue1= Gates | EntityType2= ORGANIZATION | EntityValue2= Google
+============== END OF RELATION DESC ==============
+Relations extracted from this website: 3 (Overall: 16 )
+Processing: https://www.theverge.com/2017/8/15/16148370/bill-gates-microsoft-shares-sale-2017
+=============== EXTRACTED RELATION ===============
+Sentence: The SEC filing also reveals that Melinda Gates holds nearly 425,000 Microsoft shares .
+RelationType: Work_For | Confidence: 0.3357761960446243 | EntityType1= PEOPLE | EntityValue1= Gates | EntityType2= ORGANIZATION | EntityValue2= SEC
+============== END OF RELATION DESC ==============
+=============== EXTRACTED RELATION ===============
+Sentence: Former Microsoft CEO Steve Ballmer is still the largest holder of Microsoft stock , followed by Gates and then current Microsoft CEO Satya Nadella .
+RelationType: Work_For | Confidence: 0.3401856386166507 | EntityType1= PEOPLE | EntityValue1= Ballmer | EntityType2= ORGANIZATION | EntityValue2= Microsoft
+============== END OF RELATION DESC ==============
+=============== EXTRACTED RELATION ===============
+Sentence: Former Microsoft CEO Steve Ballmer is still the largest holder of Microsoft stock , followed by Gates and then current Microsoft CEO Satya Nadella .
+RelationType: Work_For | Confidence: 0.3401856386166507 | EntityType1= PEOPLE | EntityValue1= Nadella | EntityType2= ORGANIZATION | EntityValue2= Microsoft
+============== END OF RELATION DESC ==============
+=============== EXTRACTED RELATION ===============
+Sentence: Amazon founder Jeff Bezos is edging closer , though .
+RelationType: Work_For | Confidence: 0.464965290606408 | EntityType1= PEOPLE | EntityValue1= Bezos | EntityType2= ORGANIZATION | EntityValue2= Amazon
+============== END OF RELATION DESC ==============
+Relations extracted from this website: 4 (Overall: 20 )
+Processing: https://www.biography.com/people/bill-gates-9307520
+=============== EXTRACTED RELATION ===============
+Sentence: In 2014 , Gates stepped down as Microsoft 's chairman to focus on charitable work at his foundation , the Bill and Melinda Gates Foundation .
+RelationType: Work_For | Confidence: 0.5468866464247588 | EntityType1= PEOPLE | EntityValue1= Gates | EntityType2= ORGANIZATION | EntityValue2= Microsoft
+============== END OF RELATION DESC ==============
+=============== EXTRACTED RELATION ===============
+Sentence: In 2014 , Gates stepped down as Microsoft 's chairman to focus on charitable work at his foundation , the Bill and Melinda Gates Foundation .
+RelationType: Work_For | Confidence: 0.4474508783815412 | EntityType1= PEOPLE | EntityValue1= Bill | EntityType2= ORGANIZATION | EntityValue2= Microsoft
+============== END OF RELATION DESC ==============
+=============== EXTRACTED RELATION ===============
+Sentence: In 2014 , Gates stepped down as Microsoft 's chairman to focus on charitable work at his foundation , the Bill and Melinda Gates Foundation .
+RelationType: Work_For | Confidence: 0.3092804266848437 | EntityType1= PEOPLE | EntityValue1= Bill | EntityType2= ORGANIZATION | EntityValue2= Foundation
+============== END OF RELATION DESC ==============
+=============== EXTRACTED RELATION ===============
+Sentence: Education Lakeside School , Harvard College Place of Birth Seattle , Washington Zodiac Sign Scorpio Cite This Page Entrepreneur Bill Gates founded the world 's largest software business , Microsoft , with Paul Allen , and subsequently became one of the richest men in the world .
+RelationType: Work_For | Confidence: 0.5184764085693362 | EntityType1= PEOPLE | EntityValue1= Allen | EntityType2= ORGANIZATION | EntityValue2= Microsoft
+============== END OF RELATION DESC ==============
+=============== EXTRACTED RELATION ===============
+Sentence: In February 2014 , Gates stepped down as chairman of Microsoft in order to move into a new position as technology adviser ; longtime Microsoft CEO Steve Ballmer was replaced by 46-year-old Satya Nadella .
+RelationType: Work_For | Confidence: 0.3401856386166507 | EntityType1= PEOPLE | EntityValue1= Ballmer | EntityType2= ORGANIZATION | EntityValue2= Microsoft
+============== END OF RELATION DESC ==============
+Relations extracted from this website: 5 (Overall: 25 )
+Processing: https://www.youtube.com/watch?v=rOqMawDj0LQ
+=============== EXTRACTED RELATION ===============
+Sentence: Published on Feb 14 , 2017 Bill Gates talks with GeekWire about his ongoing work as a strategic adviser at Microsoft , and the company 's evolution under CEO Satya Nadella .
+RelationType: Work_For | Confidence: 0.2850787708838093 | EntityType1= PEOPLE | EntityValue1= GeekWire | EntityType2= ORGANIZATION | EntityValue2= Microsoft
+============== END OF RELATION DESC ==============
+=============== EXTRACTED RELATION ===============
+Sentence: Up next Microsoft CEO Satya Nadella : How I Work - Duration : 2:15 .
+RelationType: Work_For | Confidence: 0.3401856386166507 | EntityType1= PEOPLE | EntityValue1= Nadella | EntityType2= ORGANIZATION | EntityValue2= Microsoft
+============== END OF RELATION DESC ==============
+=============== EXTRACTED RELATION ===============
+Sentence: GeekWire 1,125 views 44:20 The David Rubenstein Show : Microsoft Co-Founder Bill Gates - Duration : 25:05 .
+RelationType: Work_For | Confidence: 0.2 | EntityType1= PEOPLE | EntityValue1= Rubenstein | EntityType2= ORGANIZATION | EntityValue2= Microsoft
+============== END OF RELATION DESC ==============
+=============== EXTRACTED RELATION ===============
+Sentence: GeekWire 1,125 views 44:20 The David Rubenstein Show : Microsoft Co-Founder Bill Gates - Duration : 25:05 .
+RelationType: Work_For | Confidence: 0.33936862806876167 | EntityType1= PEOPLE | EntityValue1= Gates | EntityType2= ORGANIZATION | EntityValue2= Microsoft
+============== END OF RELATION DESC ==============
+=============== EXTRACTED RELATION ===============
+Sentence: Bloomberg TV Markets and Finance 74,651 views 4:56 Harvard Commencement speaker Mark Zuckerberg asks Bill Gates for advice - Duration : 0:51 .
+RelationType: Work_For | Confidence: 0.48466115883664407 | EntityType1= PEOPLE | EntityValue1= Zuckerberg | EntityType2= ORGANIZATION | EntityValue2= Commencement
+============== END OF RELATION DESC ==============
+Relations extracted from this website: 5 (Overall: 30 )
+Processing: https://qz.com/1054323/bill-gates-will-have-no-microsoft-msft-shares-by-mid-2019-at-his-current-rate/
+Relations extracted from this website: 0 (Overall: 30 )
+Processing: http://www.bbc.com/news/business-40934211
+=============== EXTRACTED RELATION ===============
+Sentence: And the third biggest came from Dell Computer Corporation founder Michael Dell and his wife Susan .
+RelationType: Work_For | Confidence: 0.48466115883664407 | EntityType1= PEOPLE | EntityValue1= Dell | EntityType2= ORGANIZATION | EntityValue2= Corporation
+============== END OF RELATION DESC ==============
+Relations extracted from this website: 1 (Overall: 31 )
+Processing: https://www.wsj.com/articles/a-rare-joint-interview-with-microsoft-ceo-satya-nadella-and-bill-gates-1506358852
+Relations extracted from this website: 0 (Overall: 31 )
+Processing: http://www.zdnet.com/article/bill-gates-stake-in-microsoft-is-now-just-1-3-percent/
+=============== EXTRACTED RELATION ===============
+Sentence: Gates is the second largest , and current Microsoft CEO Satya Nadella is No. 3 .
+RelationType: Work_For | Confidence: 0.3401856386166507 | EntityType1= PEOPLE | EntityValue1= Nadella | EntityType2= ORGANIZATION | EntityValue2= Microsoft
+============== END OF RELATION DESC ==============
+=============== EXTRACTED RELATION ===============
+Sentence: Bill Gates working on new Microsoft ` Personal Agent ' technology Microsoft founder Bill Gates is working on a new ` Personal Agent ' project with Microsoft , he disclosed during his Reddit AMA .
+RelationType: Work_For | Confidence: 0.48317660388102346 | EntityType1= PEOPLE | EntityValue1= Gates | EntityType2= ORGANIZATION | EntityValue2= Microsoft
+============== END OF RELATION DESC ==============
+Relations extracted from this website: 2 (Overall: 33 )
+Pruning relations below threshold...
+Number of tuples after pruning: 13
+================== ALL RELATIONS =================
+RelationType: Work_For	|Confidence: 0.547	|Entity #1: Gates (PEOPLE)	|Entity #2: Microsoft (ORGANIZATION)
+
+RelationType: Work_For	|Confidence: 0.518	|Entity #1: Allen (PEOPLE)	|Entity #2: Microsoft (ORGANIZATION)
+
+RelationType: Work_For	|Confidence: 0.497	|Entity #1: Gates (PEOPLE)	|Entity #2: Google (ORGANIZATION)
+
+RelationType: Work_For	|Confidence: 0.485	|Entity #1: Zuckerberg (PEOPLE)	|Entity #2: Facebook (ORGANIZATION)
+
+RelationType: Work_For	|Confidence: 0.485	|Entity #1: Myhrvold (PEOPLE)	|Entity #2: Microsoft (ORGANIZATION)
+
+RelationType: Work_For	|Confidence: 0.485	|Entity #1: Zuckerberg (PEOPLE)	|Entity #2: Commencement (ORGANIZATION)
+
+RelationType: Work_For	|Confidence: 0.485	|Entity #1: Dell (PEOPLE)	|Entity #2: Corporation (ORGANIZATION)
+
+RelationType: Work_For	|Confidence: 0.465	|Entity #1: Bezos (PEOPLE)	|Entity #2: Amazon (ORGANIZATION)
+
+RelationType: Work_For	|Confidence: 0.447	|Entity #1: Bill (PEOPLE)	|Entity #2: Microsoft (ORGANIZATION)
+
+RelationType: Work_For	|Confidence: 0.446	|Entity #1: Gates (PEOPLE)	|Entity #2: Institute (ORGANIZATION)
+
+Program reached 10 number of tuples. Shutting down...

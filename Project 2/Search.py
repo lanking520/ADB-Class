@@ -12,8 +12,8 @@ import re
 
 
 SearchAPI = "https://www.googleapis.com/customsearch/v1"
-# NLPPackagePath = '/User/lanking/Documents/GitHub/ADB-Class/stanford-corenlp-full-2017-06-09'
-client = NLPCoreClient('/Users/lanking/Documents/GitHub/ADB-Class/stanford-corenlp-full-2017-06-09')
+NLPPackagePath = sys.argv[7]
+client = NLPCoreClient(NLPPackagePath)
 ## Parameter for selection
 DEBUG = False
 USE_TIKA = True   # Default using BeautifulSoup, can choose TIKA
@@ -92,6 +92,7 @@ def textExtractor(URL):
         visible_text = soup.getText()
 
     visible_text = re.sub(r'[^\x00-\x7F]+',' ', visible_text)
+    
     # splitted = re.split(r'[^a-zA-Z0-9 ,\'&\-\(\)]+', visible_text)
     # visible_text = visible_text.encode('ascii', 'replace').decode('ascii')
     cleaned = visible_text.split('\n')
@@ -237,8 +238,8 @@ def new_query(source, query, queryed):
 
 
 def main():
-    if len(sys.argv) < 7:
-        sys.stdout.write('Usage : python3 '+ sys.argv[0] +' <google api key> <google engine id> <r> <t> <q> <k>\n')
+    if len(sys.argv) < 8:
+        sys.stdout.write('Usage : python3 '+ sys.argv[0] +' <Json api key> <google engine id> <r> <t> <q> <k> <Stanford NLP Package Path>\n')
         sys.exit()
     CSEKey = sys.argv[1]
     JsonAPIKey = sys.argv[2]

@@ -9,6 +9,8 @@
 ## Files List:
 requirement.txt - Dependency package<br>
 Search.py - Our main program
+NLPCore.py
+data.py 
 
 
 ## Google Search API
@@ -17,4 +19,15 @@ JSON API key: AIzaSyBz-iFhhFx_sQSBMxKBMh9d5ZjD2nyQtLw
 
 ## How to run our program
 do `` pip3 install -r requirement.txt`` <br>
-do ``python3 Search.py  <google api key> <google engine id> <r> <t> <q> <k>`` <br>
+
+Next, you have to specify your command line parameter as follow: <br>
+do ``python3 Search.py  <google api key> <google engine id> <r> <t> <q> <k> <Stanford NLP Package Path>`` <br>
+
+
+## Internal design of this project
+
+
+## How you carried out Step 3
+
+
+
