@@ -91,11 +91,15 @@ def textExtractor(URL):
         [s.extract() for s in soup(['style', 'script', '[document]', 'head', 'title'])]
         visible_text = soup.getText()
 
-    visible_text = re.sub(r'[^\x00-\x7F]+',' ', visible_text)
+    visible_text = re.sub(r'[^\x00-\x7F]+','', visible_text)
+    regex = re.compile(r'[\r\t]')
+    regex.sub('', visible_text)
     
     # splitted = re.split(r'[^a-zA-Z0-9 ,\'&\-\(\)]+', visible_text)
     # visible_text = visible_text.encode('ascii', 'replace').decode('ascii')
+    # visible_text.replace('\t', '').replace('\r', '')
     cleaned = visible_text.split('\n')
+    # print(cleaned)
     # for item in splitted:
     #     length = len(item.split())
     #     if length > min and length < max:
