@@ -92,7 +92,7 @@ def textExtractor(URL):
 
     ok = True
 
-    return ok, [visible_text.encode('ascii', 'ignore').decode('ascii').replace('\n','.')]
+    return ok, [visible_text.encode('ascii', 'replace').decode('ascii').replace('\n','.')]
 
 '''
         Pipeline for Stanford NLP
