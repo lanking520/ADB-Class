@@ -26,6 +26,11 @@ do ``python3 Search.py  <google api key> <google engine id> <r> <t> <q> <k> <Sta
 
 ## Internal design of this project
 
+### Step 1 Getting Required URL and Content
+Using Google Custom Search Engine and obtained the 10 search result. For each URL, the system would try to do the normal HTTP GET call through urllib. If request failed, it will use requests call with headers added. Then, user can choose to use TIKA or BeautifulSoup to do the text cleaning. TIKA was chosen by default. For TIKA configuration, Content will be extracted. For BeautifulSoup, the visible content from HTML will be extracted.
+
+### Step 2 Data Cleaning for the Content
+A couples of way tried 
 
 ## How you carried out Step 3
 
