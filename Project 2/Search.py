@@ -49,7 +49,7 @@ def printIntro(CSEKey, JsonAPIKey, relation, threshold, query, tuples):
 
 def printSummary(source, tuples):
     source = sorted(source, key=lambda k : k['prob'], reverse = True)
-    upperbound = min(len(source), tuples)
+    upperbound = len(source)
     print("================== ALL RELATIONS =================")
     for i in range(upperbound):
         builder = []
@@ -81,7 +81,6 @@ def textExtractor(URL):
         except Exception as e:
             print("requests open Failed:", e)
 
-    cleaned = []
     visible_text = ""
     if USE_TIKA:
         from tika import parser
@@ -91,18 +90,9 @@ def textExtractor(URL):
         [s.extract() for s in soup(['style', 'script', '[document]', 'head', 'title'])]
         visible_text = soup.getText()
 
-    visible_text = re.sub(r'[^\x00-\x7F]+',' ', visible_text)
-    
-    # splitted = re.split(r'[^a-zA-Z0-9 ,\'&\-\(\)]+', visible_text)
-    # visible_text = visible_text.encode('ascii', 'replace').decode('ascii')
-    cleaned = visible_text.split('\n')
-    # for item in splitted:
-    #     length = len(item.split())
-    #     if length > min and length < max:
-    #         cleaned.append(item)
     ok = True
 
-    return ok, cleaned
+    return ok, [visible_text.encode('ascii', 'ignore').decode('ascii').replace('\n','.')]
 
 '''
         Pipeline for Stanford NLP
@@ -141,9 +131,13 @@ def Round1(text, relation_name):
             # print(token.ner)
             typechecker[token.ner] += 1
             sb.append(token.word)
+        if DEBUG: print(typechecker)
         if relation_judger(relation_name,typechecker) and len(sb) < 50:
             line = u' '.join(sb)
             result.append(line)
+    if DEBUG: 
+        print("After Round 1 Cleaning", len(result))
+        print(result)
     return result
 
 
@@ -162,6 +156,7 @@ def Round2(text, relation_name):
     # ne2_type = "PEOPLE"
     threshold = 0.35
     doc = client.annotate(text = text, properties = properties)
+    if DEBUG: print("Sentences in Round2", len(doc.sentences))
     for item in doc.sentences:
         r = item.relations
         line = ""
@@ -170,11 +165,14 @@ def Round2(text, relation_name):
             e = relation.entities
             key = ' '.join(sorted([e[0].type,e[1].type]))
             # We do not find a match entities
+            if DEBUG: print(key)
             if key != checkList[relation_name]:
                 if DEBUG: print(key,"Length of entities", len(e))
                 continue
             # Make sure we have the maximum relation
-            if relation_name in probs and probs[relation_name] == max(probs.values()):
+            if DEBUG: print(probs)
+            if DEBUG: print(relation_name in probs)
+            if relation_name in probs and float(probs[relation_name]) >= max(list(map(float, probs.values()))):
                 if len(relation.entities) == 2:
                     if len(line) == 0:
                         temp = []
@@ -249,6 +247,7 @@ def main():
     k = sys.argv[6]                     # Number of tuple needed
     # Initialization
     relation_name = ["Live_In", "Located_In", "OrgBased_In", "Work_For"][int(RelationSelector) - 1]
+    if DEBUG: print(relation_name)
     printIntro(CSEKey, JsonAPIKey, relation_name, threshold, query, k)
     result_set = []
     not_finished = True
@@ -289,7 +288,7 @@ def main():
 
         if len(result_set) >= int(k):
             not_finished = False
-            print("Program reached", k ,"number of tuples. Shutting down...")
+            print("Program reached", len(result_set) ,"number of tuples. Shutting down...")
         else:
             nquery = new_query(result_set, query, queryed)
             if nquery == query:
