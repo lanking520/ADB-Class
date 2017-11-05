@@ -42,7 +42,7 @@ Two pipeline was inplemented in our case. The first pipeline are specifically us
 - relation name
 
 ### Step 4 Remove Dupes and to the next cycle
-
+When the result obtained from stanfordNLP, these data would be stored in a list. Then the program would move on into next URL to extract query. The program would start removing duplicated items when all result obtained. The duplicated is determined by the relationEntities value. If both name existed in the list, we only keep the one with the higher probabilities. Then, the item would be eliminated if it is smaller than the threashold that user defined. After that, the program would check the number of items reach to the requirement or not. If the number is smaller than the number that user required, the program would move back to step 1 with the query that is not searched before.
 
 
 ## How you carried out Step 3
