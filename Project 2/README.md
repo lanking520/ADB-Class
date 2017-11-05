@@ -46,6 +46,9 @@ When the result obtained from stanfordNLP, these data would be stored in a list.
 
 
 ## How you carried out Step 3
+### First Pipeline
+The design of first pipeline is generally follow the requirement and the following steps would be taken during the annotation:
+- tokenize,ssplit,pos,lemma,ner
 
 
 
