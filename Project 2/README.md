@@ -30,7 +30,14 @@ do ``python3 Search.py  <google api key> <google engine id> <r> <t> <q> <k> <Sta
 Using Google Custom Search Engine and obtained the 10 search result. For each URL, the system would try to do the normal HTTP GET call through urllib. If request failed, it will use requests call with headers added. Then, user can choose to use TIKA or BeautifulSoup to do the text cleaning. TIKA was chosen by default. For TIKA configuration, Content will be extracted. For BeautifulSoup, the visible content from HTML will be extracted.
 
 ### Step 2 Data Cleaning for the Content
-A couples of way tried 
+A couples of way tried to do the cleaning including remove special Symbols(\[^a-zA-Z0-9 .!?-\']+), and removing none ascii symbols. The final solution was just do the ascii translation(encoding + decoding), replace all \n to dot. It would maximize the relation found in the text documents. Finally, pass them as a list to the two pipelines.
+
+### Step 3 Stanford NLP Relation Extraction
+Two pipeline was inplemented in our case. The first pipeline are specifically used to find if some keywords existed in the sentences. It would extract the useful sentences from the raw data. The second pipeline would extract the relation in these sentences. If there is a match to the requirement, it would be stored into the list and passed back to the main function. Please see the follows for more detailed implementation on Step 3.
+
+### Step 4 Remove Dupes and to the next cycle
+
+
 
 ## How you carried out Step 3
 
