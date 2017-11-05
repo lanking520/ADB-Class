@@ -33,7 +33,13 @@ Using Google Custom Search Engine and obtained the 10 search result. For each UR
 A couples of way tried to do the cleaning including remove special Symbols(\[^a-zA-Z0-9 .!?-\']+), and removing none ascii symbols. The final solution was just do the ascii translation(encoding + decoding), replace all \n to dot. It would maximize the relation found in the text documents. Finally, pass them as a list to the two pipelines.
 
 ### Step 3 Stanford NLP Relation Extraction
-Two pipeline was inplemented in our case. The first pipeline are specifically used to find if some keywords existed in the sentences. It would extract the useful sentences from the raw data. The second pipeline would extract the relation in these sentences. If there is a match to the requirement, it would be stored into the list and passed back to the main function. Please see the follows for more detailed implementation on Step 3.
+Two pipeline was inplemented in our case. The first pipeline are specifically used to find if some keywords existed in the sentences. It would extract the useful sentences from the raw data. The second pipeline would extract the relation in these sentences. If there is a match to the requirement, it would be stored into the list and passed back to the main function. Please see the follows for more detailed implementation on Step 3. Each item in the list would in the following format:
+
+- relationEntity 1
+- relationEntity 2
+- Text
+- Probabilities
+- relation name
 
 ### Step 4 Remove Dupes and to the next cycle
 
