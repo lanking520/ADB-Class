@@ -48,7 +48,15 @@ When the result obtained from stanfordNLP, these data would be stored in a list.
 ## How you carried out Step 3
 ### First Pipeline
 The design of first pipeline is generally follow the requirement and the following steps would be taken during the annotation:
-- tokenize,ssplit,pos,lemma,ner
+- Annotator: tokenize,ssplit,pos,lemma,ner
+- parse.model: "edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz"
+- ner.useSUTime: "0"
+After this step, we will start the search ner from all sentences that the annotator defined and store them in the dictionary. A filter would be applied to filter out the entities set that not match our requirement. Filter implementation is as follows:
+- Live_In : PERSON and LOCATION should be in the dictionary
+- Located_In: LOCATION numbers should be greater than 1
+- OrgBased_In: LOCATION and ORGANIZATION should be in the dictionary
+- Work_For: ORGANIZATION and PERSON should be in the dictionary
+It a match has been found, we would reconstruct it as a string from all tokens in the sentences. In our case, any sentences with token number greater than 50 would be eliminated to save time.
 
 
 
