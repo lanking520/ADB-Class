@@ -62,5 +62,6 @@ After this step, we will start the search ner from all sentences that the annota
 
 It a match has been found, we would reconstruct it as a string from all tokens in the sentences. In our case, any sentences with token number greater than 50 would be eliminated to save time.
 
-
+### Second Pipeline
+After the first pipline, the number of matched sentences would be greatly reduced. We feed them to the second pipeline. Comparing to the first pipeline, the second one added "parse" and "relation" step in order to do the relation extraction. After the annotation, we would find the sentence with relation that user required is the maximum of all relations that the sentence holds. Then, the sentence would be reconstructed and stored in the dictionary.
 
