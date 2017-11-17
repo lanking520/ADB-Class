@@ -6,7 +6,7 @@
 |Li-Chieh Liu| ll3123 |
 |  Qing Lan  | ql2282 |
 
-## Files List:
+## Files List
 requirement.txt - Dependency package<br>
 ARM.py - Our main program <br>
 INTEGRATED-DATASET.csv <br>
@@ -18,16 +18,17 @@ do `` pip install -r requirement.txt`` <br>
 Next, you have to specify your command line parameter as follow: <br>
 do ``python ARM.py INTEGRATED-DATASET.csv <min_sup> <min_conf>`` <br>
 
-## NYC Open Data data set(s) you used to generate the INTEGRATED-DATASET file: 
+## NYC Open Data data set you used
 We use **DOHMH New York City Restaurant Inspection Results**.
 ### Table
 |   Resuarant Location   |  Type     |   Grade   |    Grade Date    |
 |------------------------|-----------|-----------|------------------|
 |         Bronx          |  Hambuger |     B     |    03/01/2017    |
 
+### Why use this data set
 The original table is like that, we find it interesting to find the relashionship of resuarant location, the inspection date and the grade. For example: Restuarants in Manhattan are generally dirtier than Brooklyn.
 
-## How do you map the original NYC Open Data data set(s) into your INTEGRATED-DATASET file: 
+## How do you map the original NYC Open Data data set(s) into your INTEGRATED-DATASET file
 A row of this data set is like the first row, so this data set is not the ordinary True-False table. We want make it into the second row, which means that we must make numeric data to some interval to make association rule mining works. <br>
 ### Table
 |   Resuarant Location   |  Type     |   Grade   |    Grade Date    |
@@ -44,7 +45,7 @@ Since we do the two above mapping, we make a very fine data coarser, so that mor
 
 
 
-## The internal design of our a-priori algorithm:
+## The internal design of our a-priori algorithm
 We simply use the original version, i.e. Section 2.1 and 2.1.1 of the Agrawal and Srikant paper in VLDB 1994.
 The algorithms has two step:
 1. Generate all large item sets, the union of Lk for k=2...k, that all have support greater than our minimum support.
