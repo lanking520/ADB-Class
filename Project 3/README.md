@@ -24,8 +24,10 @@ We use **DOHMH New York City Restaurant Inspection Results**.## What makes your 
 ## How do you map the original NYC Open Data data set(s) into your INTEGRATED-DATASET file: 
 A row of this data set is like the first row, and we make it into the second row:<br>
 |   Resuarant Location   |  Hambuger |   Grade   |    03/01/2017    |
-|------------------------|-----------|-----------|------------------|
+|:----------------------:|-----------|-----------|------------------|
 |   Resuarant Location   |  American |   Grade   |      Spring      | 
+|   Resuarant Location   |  Hambuger |   Grade   |    03/01/2017    |
+
 So this data set is not the ordinary True-False table, which means that we must make numeric data to some interval to make association rule mining works. <br>
 So <br> 
 1. We make a coarse catergorize for the Food Style, for example: Chinese and Korean are all considered as Asian, Hamberger and BBQ are considered as NorthAmerican. 
