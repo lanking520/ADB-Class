@@ -19,17 +19,23 @@ Next, you have to specify your command line parameter as follow: <br>
 do ``python ARM.py INTEGRATED-DATASET.csv <min_sup> <min_conf>`` <br>
 
 ## NYC Open Data data set(s) you used to generate the INTEGRATED-DATASET file: 
-We use **DOHMH New York City Restaurant Inspection Results**.## What makes your choice of INTEGRATED-DATASET file compelling (in other words, justify your choice of NYC Open Data data set(s)). The explanation should be detailed enough to allow us to recreate your INTEGRATED-DATASET file exactly from scratch from the NYC Open Data site.
+We use **DOHMH New York City Restaurant Inspection Results**.
+### Table
+|   Resuarant Location   |  Type     |   Grade   |    Grade Date    |
+|------------------------|-----------|-----------|------------------|
+|         Bronx          |  Hambuger |     B     |    03/01/2017    |
+
+The original table is like that, we find it interesting to find the relashionship of resuarant location, the inspection date and the grade. For example: Restuarants in Manhattan are generally dirtier than Brooklyn.
 
 ## How do you map the original NYC Open Data data set(s) into your INTEGRATED-DATASET file: 
-A row of this data set is like the first row, and we make it into the second row: <br>
+A row of this data set is like the first row, so this data set is not the ordinary True-False table. We want make it into the second row, which means that we must make numeric data to some interval to make association rule mining works. <br>
 ### Table
 |   Resuarant Location   |  Type     |   Grade   |    Grade Date    |
 |------------------------|-----------|-----------|------------------|
 |         Bronx          |  Hambuger |     B     |    03/01/2017    |
 |         Bronx          |  American |     B     |      Spring      | 
 
-So this data set is not the ordinary True-False table, which means that we must make numeric data to some interval to make association rule mining works. <br>
+
 So <br> 
 1. We make a coarse catergorize for the Food Style, for example: Chinese and Korean are all considered as Asian, Hamberger and BBQ are considered as NorthAmerican. 
 2. We convert Grade Date into interval, that is by Season.
@@ -47,7 +53,7 @@ The algorithms has two step:
 2. Generate Association Rule for those union of Lk. Make every bianry partition for every item_set that is qualified, and try to compute the confidence for this pair.
 
 
-## 下面這個部分等你改一改之後再寫，我覺得我們parser可以改一下，把沒用的column全部刪掉，然後date只要樓grade date就好了這樣就不用特別標注是grade date還是inspection date了。 然後我覺得可以把food type的other裡面的一些東西強行歸類到北美 南美或亞洲，這樣也許可以找到多一點confidence。例如coffee就可以歸類到北美但現在是在other分類。 
+## 下面這個部分等你改一改之後再寫，我覺得我們parser可以改一下，把沒用的column全部刪掉，然後date只要留grade date就好了這樣就不用特別標注是grade date還是inspection date了。 然後我覺得可以把food type的other裡面的一些東西強行歸類到北美 南美或亞洲，這樣也許可以找到多一點confidence。例如coffee就可以歸類到北美但現在是在other分類。 
 The command line specification of a compelling sample run (i.e., a min_sup, min_conf combination that produces association rules that are revealing, surprising, useful, or helpful; see above). Briefly explain why the results are indeed compelling.
 Any additional information that you consider significant.
 A text file named "example-run.txt" with the output of the compelling sample run of point 3f, listing all the frequent itemsets as well as association rules for that run, as discussed in the Association Rule Mining Algorithm section above.
