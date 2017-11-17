@@ -22,9 +22,10 @@ do ``python ARM.py INTEGRATED-DATASET.csv <min_sup> <min_conf>`` <br>
 We use **DOHMH New York City Restaurant Inspection Results**.## What makes your choice of INTEGRATED-DATASET file compelling (in other words, justify your choice of NYC Open Data data set(s)). The explanation should be detailed enough to allow us to recreate your INTEGRATED-DATASET file exactly from scratch from the NYC Open Data site.
 
 ## How do you map the original NYC Open Data data set(s) into your INTEGRATED-DATASET file: 
-A row of this data set is like:<br>
-|  Resuarant Location   |  Food Style |   Grade   |  Grade Date  |
-
+A row of this data set is like the first row, and we make it into the second row:<br>
+|   Resuarant Location   |  Hambuger |   Grade   |    03/01/2017    |
+|------------------------|-----------|-----------|------------------|
+|   Resuarant Location   |  American |   Grade   |      Spring      | 
 So this data set is not the ordinary True-False table, which means that we must make numeric data to some interval to make association rule mining works. <br>
 So <br> 
 1. We make a coarse catergorize for the Food Style, for example: Chinese and Korean are all considered as Asian, Hamberger and BBQ are considered as NorthAmerican. 
