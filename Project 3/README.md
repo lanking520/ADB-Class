@@ -8,17 +8,11 @@
 
 ## Files List:
 requirement.txt - Dependency package<br>
-Search.py - Our main program
-NLPCore.py
-data.py 
-
-
-## Google Search API
-Engine ID: 014170202143592210537:4zb34sjofuu<br> 
-JSON API key: AIzaSyBz-iFhhFx_sQSBMxKBMh9d5ZjD2nyQtLw
+ARM.py - Our main program
+INTEGRATED-DATASET.csv
 
 ## How to run our program
-do `` pip3 install -r requirement.txt`` <br>
+do `` pip install -r requirement.txt`` <br>
 
 Next, you have to specify your command line parameter as follow: <br>
-do ``python3 Search.py  <google api key> <google engine id> <r> <t> <q> <k> <Stanford NLP Package Path>`` <br>
+do ``python ARM.py INTEGRATED-DATASET.csv <min_sup> <min_conf>`` <br>
