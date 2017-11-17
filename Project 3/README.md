@@ -8,9 +8,9 @@
 
 ## Files List:
 requirement.txt - Dependency package<br>
-ARM.py - Our main program
-INTEGRATED-DATASET.csv
-example-run.txt
+ARM.py - Our main program <br>
+INTEGRATED-DATASET.csv <br>
+example-run.txt <br>
 
 ## How to run our program
 do `` pip install -r requirement.txt`` <br>
@@ -40,7 +40,7 @@ So <br>
 1. We make a coarse catergorize for the Food Style, for example: Chinese and Korean are all considered as Asian, Hamberger and BBQ are considered as NorthAmerican. 
 2. We convert Grade Date into interval, that is by Season.
 
-We the the two above mapping, we make a very fine data coarser, so that more data will satisfy our min_sup, and therefore find more interesting assocation rule. <br>
+Since we do the two above mapping, we make a very fine data coarser, so that more data will satisfy our min_sup, and therefore find more interesting assocation rule. <br>
 
 
 
