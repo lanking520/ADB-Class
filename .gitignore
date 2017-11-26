@@ -9,3 +9,4 @@ input.txt*
 *.pyc
 Project 3/dataset/
 Project 3/INTEGRATED-DATASET.csv
+.idea/
