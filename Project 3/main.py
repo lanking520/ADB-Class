@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import copy
 import json
+import sys
 
 dataPath = "./dataset/INTEGRATED-DATASET.csv"
 
@@ -15,12 +16,13 @@ min_supp = 0.2*len(dataSet)
 min_conf = 0.1*len(dataSet)
 
 
-def get_Lk(one_item_set):
+def get_Lk(one_item_set, depth = 4):
     Union_Lk = []
     Union_Lk.append(one_item_set)
     k = 1
-    while len(Union_Lk[-1]) != 0 and k <= 4:
+    while len(Union_Lk[-1]) != 0 and k <= depth:
         Ck = apriori_gen(Union_Lk[-1], k)
+        passed = []
         for idx, c in enumerate(Ck):
             cols = []
             vals = []
@@ -29,12 +31,11 @@ def get_Lk(one_item_set):
                 vals.append(item[1])
             gb = dataSet.groupby(cols)
             try:
-                if len(gb.get_group(tuple(vals))) < min_supp:
-                    del Ck[idx]
-            except KeyError:
-                del Ck[idx]
-
-        Union_Lk.append(Ck)
+                if len(gb.get_group(tuple(vals))) >= min_supp:
+                    passed.append(Ck[idx])
+            except:
+                print "Combination Not existed!"
+        Union_Lk.append(passed)
         k = k + 1
     return Union_Lk
 
@@ -100,6 +101,7 @@ get_L1(dataSet, one_item)
 
 one_item_set = []
 init_one_item_set(one_item, one_item_set)
+
 
 one_item_set = sorted(one_item_set, key=lambda x: (x[0], x[0][1]))
 Union_Lk = get_Lk(one_item_set)
