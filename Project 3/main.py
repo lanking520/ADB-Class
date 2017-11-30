@@ -9,6 +9,8 @@ import sys
 DEBUG = False
 
 def get_Lk(one_item_set, min_supp, depth = 4):
+    # The major Exec to find all Layers
+    # Default depth is 4
     Union_Lk = []
     Union_Lk.append(one_item_set)
     k = 1
@@ -23,6 +25,7 @@ def get_Lk(one_item_set, min_supp, depth = 4):
                 vals.append(item[1])
             gb = dataSet.groupby(cols)
             try:
+                # If there is a match found
                 if len(gb.get_group(tuple(vals))) >= min_supp:
                     passed.append(Ck[idx])
             except:
@@ -48,6 +51,7 @@ def apriori_gen(Lk_minus1, k):
 
 
 def check_subset(Lk_minus1, new_item_set):
+    # Check duplicates
     for i in xrange(len(new_item_set)):
         subset = copy.deepcopy(new_item_set)
         del subset[i]
@@ -67,6 +71,8 @@ def check_match(set1, set2):
 
 
 def get_L1(dataSet, one_item, min_supp):
+    # Get Layer 1 Data
+    # Eliminate the value below Min_Supp
     for item in one_item:
         cntType = dataSet.groupby(item).count()
         one_item[item] = [x for x in one_item[item] if cntType.at[x, 'Name'] >= min_supp]
@@ -80,6 +86,8 @@ def init_one_item_set(one_item, one_item_set):
             one_item_set.append(new_item_set)
 
 def get_initial(dataSet, header):
+    # Get initial all unique values
+    # for all columns
     one_item = {}
     for value in header:
         temp = dataSet[value].unique()
@@ -108,6 +116,7 @@ def pick_up_num(df, num, selected, remains, index):
 
 
 def generate_fit(df, result, threshold):
+    # Calculation all possible combinations for one group
     submit = []
     for level, value in enumerate(result):
         # under 1st Level
@@ -167,13 +176,14 @@ def main():
     dataSet = pre_process(filePath)
     min_supp_num = min_support * dataSet.shape[0]
     f = open('output.txt', 'w')
-
+    # The Field that we take into consideration
     header = ["Borough", "Type", "InspectionSeason", "Reason", "Critical", "Score", "Grade", "GradeSeason"]
     one_item = get_initial(dataSet, header)
     get_L1(dataSet, one_item, min_supp_num)
     one_item_set = []
     init_one_item_set(one_item, one_item_set)
-
+    # Sort them with the order of First Field
+    # Such as 'Borough' will be in front of 'Type'
     one_item_set = sorted(one_item_set, key=lambda x: (x[0], x[0][1]))
     Union_Lk = get_Lk(one_item_set, min_supp_num)
     print_supply(dataSet, Union_Lk, min_support, f)

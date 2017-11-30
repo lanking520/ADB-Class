@@ -8,7 +8,7 @@
 
 ## Files List
 requirement.txt - Dependency package<br>
-ARM.py - Our main program <br>
+main.py - Our main program <br>
 INTEGRATED-DATASET.csv <br>
 example-run.txt <br>
 
@@ -53,16 +53,6 @@ The algorithms has two step:
   - The algorithm to generate Ck using Lk-1 is also the same as the paper, which is simply by comparing all entry except the last entry, and do some pruning to eliminate Ck those have impossible subset.
 2. Generate Association Rule for those union of Lk. Make every bianry partition for every item_set that is qualified, and try to compute the confidence for this pair.
 
-
-## How to run our Program
-Do
-```
-pip install -r requirement.txt
-```
-Next, you have to specify your command line parameter as follow: 
-```
-python main.py INTEGRATED-DATASET.csv <min_supp> <min_conf>
-```
 ### An example with Support 0.2 and Confidence 0.7
 - Around 80% of Restaurant in Manhattan has the Grade A
 - More than 80% of North American food-style Restaurant have grade A
