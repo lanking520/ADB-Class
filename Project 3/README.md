@@ -16,7 +16,7 @@ example-run.txt <br>
 do `` pip install -r requirement.txt`` <br>
 
 Next, you have to specify your command line parameter as follow: <br>
-do ``python ARM.py INTEGRATED-DATASET.csv <min_sup> <min_conf>`` <br>
+do ``python main.py INTEGRATED-DATASET.csv <min_sup> <min_conf>`` <br>
 
 ## NYC Open Data data set you used
 We use **DOHMH New York City Restaurant Inspection Results**.
@@ -57,4 +57,4 @@ The algorithms has two step:
 - Around 80% of Restaurant in Manhattan has the Grade A
 - More than 80% of North American food-style Restaurant have grade A
 
-You can also see the entire result in our output.txt file for this example
+You can also see the entire result in our example-run.txt file for this example
