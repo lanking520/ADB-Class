@@ -54,7 +54,15 @@ The algorithms has two step:
 2. Generate Association Rule for those union of Lk. Make every bianry partition for every item_set that is qualified, and try to compute the confidence for this pair.
 
 
-## 下面這個部分等你改一改之後再寫，我覺得我們parser可以改一下，把沒用的column全部刪掉，然後date只要留grade date就好了這樣就不用特別標注是grade date還是inspection date了。 然後我覺得可以把food type的other裡面的一些東西強行歸類到北美 南美或亞洲，這樣也許可以找到多一點confidence。例如coffee就可以歸類到北美但現在是在other分類。 
-The command line specification of a compelling sample run (i.e., a min_sup, min_conf combination that produces association rules that are revealing, surprising, useful, or helpful; see above). Briefly explain why the results are indeed compelling.
-Any additional information that you consider significant.
-A text file named "example-run.txt" with the output of the compelling sample run of point 3f, listing all the frequent itemsets as well as association rules for that run, as discussed in the Association Rule Mining Algorithm section above.
+## How to run our Program
+Do
+```
+pip install -r requirement.txt
+```
+Next, you have to specify your command line parameter as follow: 
+```
+python main.py INTEGRATED-DATASET.csv <min_supp> <min_conf>
+```
+### An example with Support 0.2 and Confidence 0.7
+- Around 80% of Restaurant in Manhattan has the Grade A
+- More than 80% of North American food-style Restaurant have grade A
