@@ -119,22 +119,29 @@ def generate_fit(df, result, threshold):
                 submit += pick_up_num(df, i, [], item, 0)
     return submit
 
-def print_supply(dataSet, union, min_sup):
-    print "== Frequent itemsets (min_sup="+ str(int(min_sup * 100)) +"%)"
+def print_supply(dataSet, union, min_sup, f):
+    line = "== Frequent itemsets (min_sup="+ str(int(min_sup * 100)) +"%)"
+    f.write(line + "\n")
+    print line
     total = dataSet.shape[0]
     for value in union:
         for item in value:
             num = pick_up_cal(dataSet, item)
-            print str(item) + ", " + str(100.0 * num/total)+"%"
+            line = str(item) + ", " + str(round(100.0 * num/total, 4))+"%"
+            f.write(line + "\n")
+            print line
 
-def print_confidence(data, confidence):
-    print "== High - confidence association rules(min_conf="+ str(int(confidence * 100)) +"%)"
+def print_confidence(data, confidence, f):
+    line = "== High - confidence association rules(min_conf="+ str(int(confidence * 100)) +"%)"
+    f.write(line + "\n")
+    print line
     for item in data:
         temp = json.loads(item)
         if temp["Confidence"] > confidence:
             my_str = str(temp['LHS'])+" => " + str(temp['RHS'])
-            my_str += " ( Confidence: " + str(temp['Confidence']) +"%"
-            my_str += " Supp: " + str(temp['Supp']) + ")"
+            my_str += " ( Confidence: " + str(round(temp['Confidence'], 4)) +"%"
+            my_str += " Supp: " + str(round(temp['Supp'], 4)) + ")"
+            f.writelines(my_str + "\n")
             print my_str
 
 def pre_process(dataPath):
@@ -159,6 +166,8 @@ def main():
     min_confidence = float(sys.argv[3])
     dataSet = pre_process(filePath)
     min_supp_num = min_support * dataSet.shape[0]
+    f = open('output.txt', 'w')
+
     header = ["Borough", "Type", "InspectionSeason", "Reason", "Critical", "Score", "Grade", "GradeSeason"]
     one_item = get_initial(dataSet, header)
     get_L1(dataSet, one_item, min_supp_num)
@@ -167,11 +176,12 @@ def main():
 
     one_item_set = sorted(one_item_set, key=lambda x: (x[0], x[0][1]))
     Union_Lk = get_Lk(one_item_set, min_supp_num)
-    print_supply(dataSet, Union_Lk, min_support)
+    print_supply(dataSet, Union_Lk, min_support, f)
+    f.write("\n")
     print("\n")
     final = generate_fit(dataSet, Union_Lk, 0.5)
-    print_confidence(final, min_confidence)
-
+    print_confidence(final, min_confidence, f)
+    f.close()
 
 if __name__ == "__main__":
     try:

@@ -1,0 +1,36 @@
+== Frequent itemsets (min_sup=20%)
+[('Borough', 'BROOKLYN')], 24.394%
+[('Borough', 'MANHATTAN')], 39.7376%
+[('Borough', 'QUEENS')], 23.3176%
+[('Critical', 'Critical')], 52.4608%
+[('Critical', 'Not Critical')], 47.5392%
+[('Grade', 'A')], 79.2918%
+[('GradeSeason', 'Fall')], 26.0381%
+[('GradeSeason', 'Spring')], 26.7195%
+[('GradeSeason', 'Summer')], 25.2984%
+[('GradeSeason', 'Winter')], 21.944%
+[('InspectionSeason', 'Fall')], 26.0381%
+[('InspectionSeason', 'Spring')], 26.7195%
+[('InspectionSeason', 'Summer')], 25.2984%
+[('InspectionSeason', 'Winter')], 21.944%
+[('Reason', 'Non-food contact surface improperly constructed. Unacceptable material used. Non-food contact surface or equipment improperly maintained and/or not properly sealed, raised, spaced or movable to allow accessibility for cleaning on all sides, above and underneath the unit.')], 20.0164%
+[('Type', 'Asian')], 22.6775%
+[('Type', 'NorthAmerican')], 41.2459%
+[('Borough', 'MANHATTAN'), ('Critical', 'Critical')], 20.9621%
+[('Borough', 'MANHATTAN'), ('Grade', 'A')], 31.7501%
+[('Critical', 'Critical'), ('Grade', 'A')], 38.8435%
+[('Critical', 'Critical'), ('Type', 'NorthAmerican')], 21.3472%
+[('Critical', 'Not Critical'), ('Grade', 'A')], 40.4484%
+[('Critical', 'Not Critical'), ('Reason', 'Non-food contact surface improperly constructed. Unacceptable material used. Non-food contact surface or equipment improperly maintained and/or not properly sealed, raised, spaced or movable to allow accessibility for cleaning on all sides, above and underneath the unit.')], 20.0164%
+[('Grade', 'A'), ('GradeSeason', 'Spring')], 22.2233%
+[('Grade', 'A'), ('InspectionSeason', 'Spring')], 22.2233%
+[('Grade', 'A'), ('Type', 'NorthAmerican')], 33.2528%
+
+== High - confidence association rules(min_conf=70%)
+[[u'Borough', u'MANHATTAN']] => [[u'Grade', u'A']] ( Confidence: 0.799% Supp: 0.3175)
+[[u'Critical', u'Critical']] => [[u'Grade', u'A']] ( Confidence: 0.7404% Supp: 0.3884)
+[[u'Critical', u'Not Critical']] => [[u'Grade', u'A']] ( Confidence: 0.8508% Supp: 0.4045)
+[[u'Reason', u'Non-food contact surface improperly constructed. Unacceptable material used. Non-food contact surface or equipment improperly maintained and/or not properly sealed, raised, spaced or movable to allow accessibility for cleaning on all sides, above and underneath the unit.']] => [[u'Critical', u'Not Critical']] ( Confidence: 1.0% Supp: 0.2002)
+[[u'GradeSeason', u'Spring']] => [[u'Grade', u'A']] ( Confidence: 0.8317% Supp: 0.2222)
+[[u'InspectionSeason', u'Spring']] => [[u'Grade', u'A']] ( Confidence: 0.8317% Supp: 0.2222)
+[[u'Type', u'NorthAmerican']] => [[u'Grade', u'A']] ( Confidence: 0.8062% Supp: 0.3325)
