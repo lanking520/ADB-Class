@@ -54,7 +54,8 @@ The algorithms has two step:
 2. Generate Association Rule for those union of Lk. Make every bianry partition for every item_set that is qualified, and try to compute the confidence for this pair.
 
 ### An example with Support 0.2 and Confidence 0.7
-- Around 80% of Restaurant in Manhattan has the Grade A
-- More than 80% of North American food-style Restaurant have grade A
+- Around 80% of Restaurant in Manhattan has the Grade A. Manhattan is more developed than the neibour area.
+- More than 80% of North American food-style Restaurant have grade A. People Love American Food! 
+- Spring Season attract more 'A's. It usually cold in Spring and good for food to keep
 
 You can also see the entire result in our example-run.txt file for this example
