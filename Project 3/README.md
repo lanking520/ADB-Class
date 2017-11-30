@@ -66,3 +66,4 @@ python main.py INTEGRATED-DATASET.csv <min_supp> <min_conf>
 ### An example with Support 0.2 and Confidence 0.7
 - Around 80% of Restaurant in Manhattan has the Grade A
 - More than 80% of North American food-style Restaurant have grade A
+You can also see the entire result in our output.txt file for this example
